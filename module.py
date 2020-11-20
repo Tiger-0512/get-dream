@@ -68,3 +68,6 @@ def access_page(month, day, park):
             driver.get(url)
 
         print('アクセスができたよ！ハハッ！')
+        print('終了する際はターミナルでエンターキーを押してください。')
+        input()
+        print('終了処理が実行されました。ページを閉じます。')
