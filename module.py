@@ -43,12 +43,14 @@ def check_date(ymd, park):
 
     # 予約が埋まっている日付を格納
     calendar = driver.find_elements_by_class_name('is-none')
+    print(calendar)
 
     for i in calendar:
         date = i.find_element_by_class_name('js-modal-open-calendar')
         if ymd == date.get_attribute('data-ymd') and park == date.get_attribute('data-park'):
-            print('{}年{}月{}日の{}は予約が埋まっています。'.format(ymd[:4], ymd[4:5], ymd[5:6], date.get_attribute('data-park')))
+            print('{}年{}月{}日の{}は予約が埋まっています。'.format(ymd[:4], ymd[4:6], ymd[6:8], date.get_attribute('data-park')))
             return False
+    print(ymd)
     print('指定した日付に空きがあります！5秒毎に予約画面へのアクセスを試みます。')
     return True
 
@@ -60,14 +62,28 @@ def access_page(month, day, park):
     if check_date(ymd, park):
         driver = webdriver.Chrome()
         url = 'https://reserve.tokyodisneyresort.jp/ticket/search/?outside=1&route=1&useDays=1&useDateFrom=' + ymd + '&parkTicketSalesForm=1'
+        '''
+        エラーテスト用URL
+        url = 'https://reserve.tokyodisneyresort.jp/fo/ticket/index.html'
+        '''
         driver.get(url)
 
-        while driver.current_url != url:
-            sleep(5)
-            driver.back()
-            driver.get(url)
+        flag = 0
+        while flag == 0:
+            try:
+                driver.find_element_by_class_name('new-ui-theme')
+                flag = 1
+            except:
+                sleep(3)
+                driver.back()
+                driver.get(url)
 
         print('アクセスができたよ！ハハッ！')
         print('終了する際はターミナルでエンターキーを押してください。')
         input()
         print('終了処理が実行されました。ページを閉じます。')
+        sys.exit()
+
+    else:
+        sys.exit()
+
