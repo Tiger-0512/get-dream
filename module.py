@@ -55,7 +55,7 @@ def check_date(ymd, park):
     return True
 
 
-# 5秒ごとに予約画面へアクセス
+# ３秒ごとに予約画面へアクセス
 def access_page(month, day, park):
     ymd = prepare(month, day)
 
