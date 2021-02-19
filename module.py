@@ -51,7 +51,7 @@ def check_date(ymd, park):
             print('{}年{}月{}日の{}は予約が埋まっています。'.format(ymd[:4], ymd[4:6], ymd[6:8], date.get_attribute('data-park')))
             return False
     print(ymd)
-    print('指定した日付に空きがあります！5秒毎に予約画面へのアクセスを試みます。')
+    print('指定した日付に空きがあります！３秒毎に予約画面へのアクセスを試みます。')
     return True
 
 
