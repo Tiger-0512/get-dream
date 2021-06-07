@@ -21,7 +21,7 @@ Google Chromeをインストールしていない場合、[ここ](https://www.g
 また、以下のパッケージを使用します。インストールしていない場合は以下のコマンドでインストールして下さい。
 ```
 $ pip install selenium
-$ pip install chromedriver-binary=[Version of Your Chrome]
+$ pip install chromedriver-binary==[Version of Your Chrome]
 ```
 Chrome Driverのバージョンは、自身が使っているものに合わせてください。<br>
 Google Chromeのバージョン確認方法は[こちら](https://pc-karuma.net/google-chrome-version-update/)<br>
@@ -40,6 +40,13 @@ $ cd get-dream
 $ python run.py
 ```
 実行すると、コマンドライン上に指示が出ます。<br>
+たとえば9月4日のディズニーシーのチケットを取りたい場合、以下のように入力してエンターを押します。
+
+```
+予約したい月、日、パーク(tdlまたはtds)を1つずつスペースを挟み、入力してください。正しい入力が与えられると予約の空きがあるかチェックします。
+09 04 tds
+```
+
 従っていけばあら簡単！チケットが取れます。
 
 
