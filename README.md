@@ -11,8 +11,8 @@
 日付指定→チケット指定→個人情報入力orログイン<br>
 という手順で進みます。<br>
 
-現在東京ディズニーリゾートは完全予約制となっており、1ヶ月先の1週間分のチケットを、各水曜日の16時から予約できるような仕組みとなっております。<br>
-水曜日の16時以降、日付指定画面からチケット指定画面に進もうとすると、高確率でアクセス集中画面へリダイレクトされてしまい、なかなか予約へ進むことができません。<br>
+現在東京ディズニーリゾートは完全予約制となっており、1ヶ月先の1週間分のチケットを、各水曜日の14時から予約できるような仕組みとなっております(2021年11月現在)。<br>
+水曜日の14時以降、日付指定画面からチケット指定画面に進もうとすると、高確率でアクセス集中画面へリダイレクトされてしまい、なかなか予約へ進むことができません。<br>
 そこで、チケット指定画面にアクセスできるまで、Google Chromeを自動制御するソフトウェアを作成しました。
 
 
@@ -21,11 +21,11 @@ Google Chromeをインストールしていない場合、[ここ](https://www.g
 また、以下のパッケージを使用します。インストールしていない場合は以下のコマンドでインストールして下さい。
 ```
 $ pip install selenium
-$ pip install chromedriver-binary==[Version of Your Chrome]
+$ pip install chromedriver-binary==[Version of Your Chrome Driver]
 ```
-Chrome Driverのバージョンは、自身が使っているものに合わせてください。<br>
+Chrome Driverのバージョンは、自身が使っているChromeのバージョンに合わせてください。<br>
+Chrome Driverのバージョン一覧は[こちら](https://chromedriver.chromium.org/downloads)<br>
 Google Chromeのバージョン確認方法は[こちら](https://pc-karuma.net/google-chrome-version-update/)<br>
-（実行確認済Ver.: 87.0.4280.67 Official Build  x86_64）<br>
 
 続いて、このリポジトリを好きなディレクトリでクローンします。
 ```
