@@ -59,31 +59,27 @@ def check_date(ymd, park):
 def access_page(month, day, park):
     ymd = prepare(month, day)
 
-    if check_date(ymd, park):
-        driver = webdriver.Chrome()
-        url = 'https://reserve.tokyodisneyresort.jp/ticket/search/?outside=1&route=1&useDays=1&useDateFrom=' + ymd + '&parkTicketSalesForm=1'
-        '''
-        エラーテスト用URL
-        url = 'https://reserve.tokyodisneyresort.jp/fo/ticket/index.html'
-        '''
-        driver.get(url)
+    driver = webdriver.Chrome()
+    # アンバ予約用のURL、スマホ表示のURLじゃないとAccess Deniedされる
+    url = 'https://reserve.tokyodisneyresort.jp/sp/hotel/list/?hotelRoomCd=HODAHTW20001N&searchHotelCD=DAH&displayType=hotel-search'
+    '''
+    エラーテスト用URL
+    url = 'https://reserve.tokyodisneyresort.jp/fo/ticket/index.html'
+    '''
+    driver.get(url)
 
-        flag = 0
-        while flag == 0:
-            try:
-                driver.find_element_by_class_name('new-ui-theme')
-                flag = 1
-            except:
-                sleep(3)
-                driver.back()
-                driver.get(url)
+    flag = 0
+    while flag == 0:
+        try:
+            driver.find_element_by_class_name('new-ui-theme')
+            flag = 1
+        except:
+            sleep(3)
+            driver.back()
+            driver.get(url)
 
-        print('アクセスができたよ！ハハッ！')
-        print('終了する際はターミナルでエンターキーを押してください。')
-        input()
-        print('終了処理が実行されました。ページを閉じます。')
-        sys.exit()
-
-    else:
-        sys.exit()
-
+    print('アクセスができたよ！ハハッ！')
+    print('終了する際はターミナルでエンターキーを押してください。')
+    input()
+    print('終了処理が実行されました。ページを閉じます。')
+    sys.exit()
