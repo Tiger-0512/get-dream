@@ -56,12 +56,20 @@ def check_date(ymd, park):
 
 
 # ３秒ごとに予約画面へアクセス
-def access_page(month, day, park):
-    ymd = prepare(month, day)
+def access_page():
+    # ymd = prepare(month, day)
 
     driver = webdriver.Chrome()
     # アンバ予約用のURL、スマホ表示のURLじゃないとAccess Deniedされる
-    url = 'https://reserve.tokyodisneyresort.jp/sp/hotel/list/?hotelRoomCd=HODAHTW20001N&searchHotelCD=DAH&displayType=hotel-search'
+    # url = 'https://reserve.tokyodisneyresort.jp/sp/hotel/list/?hotelRoomCd=HODAHTW20001N&searchHotelCD=DAH&displayType=hotel-search'
+    # url = 'https://reserve.tokyodisneyresort.jp/sp/hotel/list/?showWay=&roomsNum=&adultNum=&childNum=&stayingDays=1&useDate=&cpListStr=&childAgeBedInform=&searchHotelCD=DAH&searchHotelDiv=&hotelName=&searchHotelName=&searchLayer=&searchRoomName=&hotelSearchDetail=true&detailOpenFlg=0&checkPointStr=&hotelChangeFlg=false&removeSessionFlg=true&returnFlg=false&hotelShowFlg=&displayType=hotel-search&reservationStatus=1'
+
+    # トイストーリーホテル用のURL
+    # url = 'https://reserve.tokyodisneyresort.jp/sp/hotel/list/?showWay=&roomsNum=&adultNum=&childNum=&stayingDays=1&useDate=&cpListStr=&childAgeBedInform=&searchHotelCD=TSH&searchHotelDiv=&hotelName=&searchHotelName=&searchLayer=&searchRoomName=&hotelSearchDetail=true&detailOpenFlg=0&checkPointStr=&hotelChangeFlg=false&removeSessionFlg=true&returnFlg=false&hotelShowFlg=&displayType=hotel-search&reservationStatus=1'
+
+    # 日付などを選択したURLを使用
+    url = 'https://reserve.tokyodisneyresort.jp/sp/hotel/list/?showWay=&roomsNum=1&adultNum=4&childNum=0&stayingDays=1&useDate=20220416&cpListStr=&childAgeBedInform=&searchHotelCD=TSH&searchHotelDiv=&hotelName=&searchHotelName=&searchLayer=&searchRoomName=&hotelSearchDetail=true&detailOpenFlg=0&checkPointStr=&hotelChangeFlg=false&removeSessionFlg=true&returnFlg=false&hotelShowFlg=&displayType=data-hotel&reservationStatus=1'
+
     '''
     エラーテスト用URL
     url = 'https://reserve.tokyodisneyresort.jp/fo/ticket/index.html'
